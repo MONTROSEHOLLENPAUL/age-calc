@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Age Calculator</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background: rgb(201, 198, 198);
+      }
+      .container {
+        background: rgba(83, 82, 82, 0.15);
+        padding: 10px;
+        box-shadow: 4px 5px 3px 2px rgba(151, 74, 74, 0.91);
+        display: grid;
+        /*justify-content: center;*/
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+      }
+      .container h1,
+      label,
+      input,
+      button,
+      h2 {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        text-align: center;
+      }
+      input {
+        border: none;
+        height: 40px;
+      }
+      button {
+        background: rgb(201, 178, 50);
+        color: white;
+        padding: 5px;
+        border: none;
+        cursor: pointer;
+        height: 30px;
+        border-radius: 5%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Age Calculator</h1>
+      <label for="birthday">Enter you date of birth</label>
+      <input type="date" id="birthday" name="birthday" />
+      <button>Calculate Age</button>
+      <p></p>
+      <script>
+        const birth = document.querySelector("input");
+        const btn = document.querySelector("button");
+        console.log(btn);
+        console.log(birth);
+        const answer = function calculate() {
+          if (birth.value === "") {
+            alert("Please enter a value");
+          } else {
+            const currentdate = new Date();
+            const birthdayDate = new Date(birth.value);
+            const age = currentdate.getFullYear() - birthdayDate.getFullYear();
+            document.querySelector(
+              "p"
+            ).innerText = `You were born on ${birth.value}, you have ${age} years`;
+          }
+        };
+        btn.addEventListener("click", answer);
+      </script>
+    </div>
+  </body>
+</html>
